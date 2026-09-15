@@ -328,3 +328,17 @@ input:focus-visible {
     outline: 3px solid #2a5bd7;
     outline-offset: 2px;
 }
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.gallery-img-block {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 12px;
+}
