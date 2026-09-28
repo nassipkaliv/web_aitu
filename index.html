@@ -7,30 +7,43 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <div class="wrapper">
+    <header>
+        <nav class="navbar navbar-expand-lg site-navbar sticky-top">
+            <div class="container">
+                <a class="navbar-brand site-logo" href="#home">Yernur Nassipkali</a>
 
-        <header class="site-header">
-            <a class="site-logo" href="#home">Yernur Nassipkali</a>
-            <nav class="site-nav">
-                <a class="nav-active" href="#home">Home</a>
-                <a href="#about-me">About</a>
-                <a href="#experience">Experience</a>
-                <a href="#skills">Skills</a>
-                <a href="#hobbies">Hobbies</a>
-                <a href="#my-schedule">Schedule</a>
-                <a href="#image-gallery">Gallery</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </header>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-        <main>
-            <section id="home" class="hero">
-                <div class="hero-text">
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about-me">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#hobbies">Hobbies</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#my-schedule">Schedule</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section id="home" class="hero">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-7 hero-text">
                     <p class="hero-greeting">Hi, i am</p>
                     <h1>Yernur Nassipkali</h1>
                     <h2 class="course-name">Software Engineer at Astana IT University</h2>
@@ -58,161 +71,289 @@
                     <button type="button" class="main-button button-light">Click Me</button>
                 </div>
 
-                <div class="hero-photo-wrap">
-                    <img class="profile-photo" src="images/avatar.jpg" alt="img">
-                </div>
-            </section>
-
-            <section id="about-me" class="section-card">
-                <h3>About Me</h3>
-                <p>
-                    I'm a second-year Software Engineering student at Astana IT University and a
-                    frontend developer. I have worked on digital contract platforms at Trustme.kz
-                    and built HTML emails, landing pages and small JavaScript promo games
-                    for iGaming brands. 🎓 💻 🚀
-                </p>
-            </section>
-
-            <section id="experience" class="section-card">
-                <h3>Work Experience</h3>
-
-                <div class="job">
-                    <div class="job-header">
-                        <h4>Frontend Developer</h4>
-                        <span class="job-date">May 2026 - Present</span>
+                <div class="col-12 col-md-5">
+                    <div class="hero-photo-wrap">
+                        <img class="profile-photo" src="images/avatar.jpg" alt="img">
                     </div>
-                    <p class="job-company">Kratos - Remote</p>
-                    <ul class="job-tasks">
-                        <li>Build the product frontend with React, TypeScript and Zustand</li>
-                        <li>Integrate REST APIs and agree on data contracts with the backend team</li>
-                        <li>Create reusable components and hooks, optimize performance with lazy loading and code splitting</li>
-                    </ul>
                 </div>
+            </div>
+        </section>
 
-                <div class="job">
-                    <div class="job-header">
-                        <h4>Frontend Developer</h4>
-                        <span class="job-date">Dec 2025 - Apr 2026</span>
+        <div class="row">
+            <div class="col-12 col-lg-8">
+
+                <section id="about-me" class="section-card">
+                    <h3>About Me</h3>
+                    <p>
+                        I'm a second-year Software Engineering student at Astana IT University and a
+                        frontend developer. I have worked on digital contract platforms at Trustme.kz
+                        and built HTML emails, landing pages and small JavaScript promo games
+                        for iGaming brands. 🎓 💻 🚀
+                    </p>
+                </section>
+
+                <section id="projects" class="section-card">
+                    <h3>Projects</h3>
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                            <article class="card project-card h-100">
+                                <div class="project-cover cover-blue">
+                                    <i class="fa-solid fa-rocket" aria-hidden="true"></i>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Kratos Product Frontend</h4>
+                                    <p class="card-text">Reusable components and hooks, REST API integration, lazy loading and code splitting.</p>
+                                    <ul class="skill-list">
+                                        <li>React</li>
+                                        <li>TypeScript</li>
+                                        <li>Zustand</li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <article class="card project-card h-100">
+                                <div class="project-cover cover-purple">
+                                    <i class="fa-solid fa-file-signature" aria-hidden="true"></i>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">TrustContract</h4>
+                                    <p class="card-text">Interfaces for a digital contract platform and UI for automatic document generation.</p>
+                                    <ul class="skill-list">
+                                        <li>UI components</li>
+                                        <li>Trustme.kz</li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <article class="card project-card h-100">
+                                <div class="project-cover cover-orange">
+                                    <i class="fa-solid fa-envelope-open-text" aria-hidden="true"></i>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">HTML Emails &amp; Landings</h4>
+                                    <p class="card-text">Responsive emails for 15+ email clients and landing pages with A/B tests.</p>
+                                    <ul class="skill-list">
+                                        <li>HTML</li>
+                                        <li>CSS</li>
+                                        <li>JavaScript</li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <article class="card project-card h-100">
+                                <div class="project-cover cover-pink">
+                                    <i class="fa-solid fa-gift" aria-hidden="true"></i>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Promo Mini-Games</h4>
+                                    <p class="card-text">Wheel of fortune and scratch cards for promo campaigns.</p>
+                                    <ul class="skill-list">
+                                        <li>JavaScript</li>
+                                        <li>CSS animation</li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </div>
                     </div>
-                    <p class="job-company">Trustme.kz - Astana</p>
-                    <ul class="job-tasks">
-                        <li>Developed interfaces for TrustContract, a digital contract automation platform</li>
-                        <li>Built UI components for automatic document generation</li>
-                        <li>Took part in the migration to TrustContract 2.0</li>
-                    </ul>
-                </div>
+                </section>
 
-                <div class="job">
-                    <div class="job-header">
-                        <h4>Frontend Web Developer</h4>
-                        <span class="job-date">Sep 2024 - Nov 2024</span>
+                <section id="experience" class="section-card">
+                    <h3>Work Experience</h3>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <h4>Frontend Developer</h4>
+                            <span class="job-date">May 2026 - Present</span>
+                        </div>
+                        <p class="job-company">Kratos - Remote</p>
+                        <ul class="job-tasks">
+                            <li>Build the product frontend with React, TypeScript and Zustand</li>
+                            <li>Integrate REST APIs and agree on data contracts with the backend team</li>
+                            <li>Create reusable components and hooks, optimize performance with lazy loading and code splitting</li>
+                        </ul>
                     </div>
-                    <p class="job-company"><a href="https://www.busyboard.pro/" target="_blank" rel="noopener">busyboard.pro</a> - Remote</p>
-                    <ul class="job-tasks">
-                        <li>Developed web interfaces with React</li>
-                        <li>Worked with application data stored in PostgreSQL</li>
-                    </ul>
-                </div>
 
-                <div class="job">
-                    <div class="job-header">
-                        <h4>CRM Frontend Developer</h4>
-                        <span class="job-date">Sep 2024 - Oct 2025</span>
+                    <div class="job">
+                        <div class="job-header">
+                            <h4>Frontend Developer</h4>
+                            <span class="job-date">Dec 2025 - Apr 2026</span>
+                        </div>
+                        <p class="job-company">Trustme.kz - Astana</p>
+                        <ul class="job-tasks">
+                            <li>Developed interfaces for TrustContract, a digital contract automation platform</li>
+                            <li>Built UI components for automatic document generation</li>
+                            <li>Took part in the migration to TrustContract 2.0</li>
+                        </ul>
                     </div>
-                    <p class="job-company">Bitonbet (iGaming) - Remote</p>
-                    <ul class="job-tasks">
-                        <li>Made responsive HTML emails that work in 15+ email clients</li>
-                        <li>Built pre-landing and landing pages with tracking and A/B tests</li>
-                        <li>Created promo mini-games in JavaScript: wheel of fortune, scratch cards</li>
-                    </ul>
-                </div>
-            </section>
 
-            <section id="skills" class="section-card">
-                <h3>Skills</h3>
-
-                <div class="skill-group">
-                    <h4>Languages</h4>
-                    <ul class="skill-list">
-                        <li>JavaScript</li>
-                        <li>TypeScript</li>
-                        <li>Python</li>
-                        <li>C++</li>
-                        <li>Java</li>
-                        <li>SQL</li>
-                    </ul>
-                </div>
-
-                <div class="skill-group">
-                    <h4>Frontend</h4>
-                    <ul class="skill-list">
-                        <li>React</li>
-                        <li>Next.js</li>
-                        <li>Vue</li>
-                        <li>React Native</li>
-                        <li>Redux</li>
-                        <li>Zustand</li>
-                        <li>HTML5</li>
-                        <li>CSS3 / SCSS</li>
-                        <li>Tailwind CSS</li>
-                        <li>Bootstrap</li>
-                        <li>JQuery</li>
-                    </ul>
-                </div>
-
-                <div class="skill-group">
-                    <h4>Tools</h4>
-                    <ul class="skill-list">
-                        <li>Git</li>
-                        <li>Figma</li>
-                        <li>Vite</li>
-                        <li>Webpack</li>
-                        <li>Jira</li>
-                        <li>Vercel</li>
-                        <li>Docker</li>
-                        <li>Linux</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section id="gallery" class="section-card">
-                <h3>
-                    Image Gallery from my trip
-                </h3>
-                <div class="image-gallery" id="image-gallery">
-                    <img src="images/gallery-img1.jpeg" class="gallery-img-block" alt="gallery-image">
-                    <img src="images/gallery-img2.jpeg" class="gallery-img-block" alt="gallery-image">
-                    <img src="images/gallery-img3.jpeg" class="gallery-img-block" alt="gallery-image">
-                    <img src="images/gallery-img4.jpeg" class="gallery-img-block" alt="gallery-image">
-                    <img src="images/gallery-img5.jpeg" class="gallery-img-block" alt="gallery-image">
-                    <img src="images/gallery-img6.jpeg" class="gallery-img-block" alt="gallery-image">
-                </div>
-            </section>
-
-            <section id="hobbies" class="section-card">
-                <h3>Hobbies &amp; Favorite Websites</h3>
-                <div class="two-columns">
-                    <div class="column">
-                        <h4>My Hobbies</h4>
-                        <ol class="hobby-list">
-                            <li>Walking</li>
-                            <li>Traveling</li>
-                            <li>Sport</li>
-                        </ol>
+                    <div class="job">
+                        <div class="job-header">
+                            <h4>Frontend Web Developer</h4>
+                            <span class="job-date">Sep 2024 - Nov 2024</span>
+                        </div>
+                        <p class="job-company"><a href="https://www.busyboard.pro/" target="_blank" rel="noopener">busyboard.pro</a> - Remote</p>
+                        <ul class="job-tasks">
+                            <li>Developed web interfaces with React</li>
+                            <li>Worked with application data stored in PostgreSQL</li>
+                        </ul>
                     </div>
-                    <div class="column">
-                        <h4>Favorite Websites</h4>
-                        <ul class="link-list">
-                            <li><a href="https://github.com/nassipkaliv/" target="_blank" rel="noopener">GitHub</a> — my projects</li>
-                            <li><a href="https://www.figma.com/" target="_blank" rel="noopener">Figma</a> — interface design</li>
-                            <li><a href="https://youtube.com/" target="_blank">Youtube</a> - watch some videos</li>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <h4>CRM Frontend Developer</h4>
+                            <span class="job-date">Sep 2024 - Oct 2025</span>
+                        </div>
+                        <p class="job-company">Bitonbet (iGaming) - Remote</p>
+                        <ul class="job-tasks">
+                            <li>Made responsive HTML emails that work in 15+ email clients</li>
+                            <li>Built pre-landing and landing pages with tracking and A/B tests</li>
+                            <li>Created promo mini-games in JavaScript: wheel of fortune, scratch cards</li>
+                        </ul>
+                    </div>
+                </section>
+
+            </div>
+
+            <aside class="col-12 col-lg-4">
+                <div class="sidebar">
+                    <div class="row g-4">
+                        <div class="col-12 col-md-6 col-lg-12">
+                            <div class="section-card">
+                                <h3>Personal Info</h3>
+                                <ul class="info-list">
+                                    <li><span class="info-label">Age</span> <span>19</span></li>
+                                    <li><span class="info-label">City</span> <span>Uralsk</span></li>
+                                    <li><span class="info-label">University</span> <span>Astana IT University</span></li>
+                                    <li><span class="info-label">Major</span> <span>Software Engineering</span></li>
+                                    <li><span class="info-label">Course</span> <span>2nd year</span></li>
+                                    <li><span class="info-label">Work</span> <span>Kratos, remote</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-12">
+                            <div id="contact" class="section-card">
+                                <h3>Contacts</h3>
+                                <ul class="contact-list">
+                                    <li>
+                                        <i class="fa-brands fa-telegram" aria-hidden="true"></i>
+                                        <a href="https://t.me/nassipkaliv" target="_blank" rel="noopener">t.me/nassipkaliv</a>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                                        <a href="mailto:nassipkaliv@gmail.com">nassipkaliv@gmail.com</a>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                                        <a href="tel:+77470467897">+7 747 046 7897</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <section id="skills" class="section-card">
+            <h3>Skills</h3>
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="skill-group">
+                        <h4>Languages</h4>
+                        <ul class="skill-list">
+                            <li>JavaScript</li>
+                            <li>TypeScript</li>
+                            <li>Python</li>
+                            <li>C++</li>
+                            <li>Java</li>
+                            <li>SQL</li>
                         </ul>
                     </div>
                 </div>
-            </section>
 
-            <section id="my-schedule" class="section-card">
-                <h3>My Schedule</h3>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="skill-group">
+                        <h4>Frontend</h4>
+                        <ul class="skill-list">
+                            <li>React</li>
+                            <li>Next.js</li>
+                            <li>Vue</li>
+                            <li>React Native</li>
+                            <li>Redux</li>
+                            <li>Zustand</li>
+                            <li>HTML5</li>
+                            <li>CSS3 / SCSS</li>
+                            <li>Tailwind CSS</li>
+                            <li>Bootstrap</li>
+                            <li>JQuery</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-4">
+                    <div class="skill-group">
+                        <h4>Tools</h4>
+                        <ul class="skill-list">
+                            <li>Git</li>
+                            <li>Figma</li>
+                            <li>Vite</li>
+                            <li>Webpack</li>
+                            <li>Jira</li>
+                            <li>Vercel</li>
+                            <li>Docker</li>
+                            <li>Linux</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="section-card">
+            <h3>
+                Image Gallery from my trip
+            </h3>
+            <div class="image-gallery" id="image-gallery">
+                <img src="images/gallery-img1.jpeg" class="gallery-img-block" alt="gallery-image">
+                <img src="images/gallery-img2.jpeg" class="gallery-img-block" alt="gallery-image">
+                <img src="images/gallery-img3.jpeg" class="gallery-img-block" alt="gallery-image">
+                <img src="images/gallery-img4.jpeg" class="gallery-img-block" alt="gallery-image">
+                <img src="images/gallery-img5.jpeg" class="gallery-img-block" alt="gallery-image">
+                <img src="images/gallery-img6.jpeg" class="gallery-img-block" alt="gallery-image">
+            </div>
+        </section>
+
+        <section id="hobbies" class="section-card">
+            <h3>Hobbies &amp; Favorite Websites</h3>
+            <div class="row g-4">
+                <div class="col-12 col-md-6">
+                    <h4>My Hobbies</h4>
+                    <ol class="hobby-list">
+                        <li>Walking</li>
+                        <li>Traveling</li>
+                        <li>Sport</li>
+                    </ol>
+                </div>
+                <div class="col-12 col-md-6">
+                    <h4>Favorite Websites</h4>
+                    <ul class="link-list">
+                        <li><a href="https://github.com/nassipkaliv/" target="_blank" rel="noopener">GitHub</a> — my projects</li>
+                        <li><a href="https://www.figma.com/" target="_blank" rel="noopener">Figma</a> — interface design</li>
+                        <li><a href="https://youtube.com/" target="_blank">Youtube</a> - watch some videos</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="my-schedule" class="section-card">
+            <h3>My Schedule</h3>
+            <div class="table-responsive">
                 <table class="schedule-table">
                     <thead>
                         <tr>
@@ -244,29 +385,23 @@
                         </tr>
                     </tbody>
                 </table>
-            </section>
+            </div>
+        </section>
 
-            <section id="contact" class="section-card">
-                <h3>Contacts</h3>
-                <ul class="contact-list">
-                    <li>
-                        <i class="fa-brands fa-telegram" aria-hidden="true"></i>
-                        <a href="https://t.me/nassipkaliv" target="_blank" rel="noopener">t.me/nassipkaliv</a>
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-                        <a href="mailto:nassipkaliv@gmail.com">nassipkaliv@gmail.com</a>
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
-                        <a href="tel:+77470467897">+7 747 046 7897</a>
-                    </li>
-                </ul>
-            </section>
+    </main>
 
-        </main>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p class="footer-copy">&copy; 2026 Yernur Nassipkali</p>
+            <p class="footer-note">Made with Bootstrap 5 grid and CSS media queries</p>
+            <div class="footer-social">
+                <a href="https://github.com/nassipkaliv/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/nassipkaliv" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+                <a href="https://t.me/nassipkaliv" target="_blank" rel="noopener" aria-label="Telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </footer>
 
-    </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
