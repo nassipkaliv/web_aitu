@@ -1,0 +1,34 @@
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+}
+
+.profile-photo {
+    width: 340px;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+}
+
+.carousel-img {
+    height: 420px;
+    object-fit: cover;
+}
+
+.card-photo {
+    height: 280px;
+    object-fit: cover;
+}
+
+@media (max-width: 767px) {
+    .profile-photo {
+        width: 240px;
+    }
+
+    .carousel-img {
+        height: 260px;
+    }
+}
