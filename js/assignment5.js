@@ -31,12 +31,12 @@ console.log('I study at ' + university + ' in group SE-' + groupNumber + '.');
 const changeText = document.getElementById('changeText');
 
 document.getElementById('changeTextButton').addEventListener('click', function () {
-    changeText.textContent = 'The text was changed with JavaScript!';
+    changeText.textContent = 'text after';
 });
 
 
 const styleBox = document.getElementById('styleBox');
-const colors = ['#ffcdd2', '#c8e6c9', '#fff9c4', '#bbdefb'];
+const colors = ['green', 'blue', 'yellow', 'lightblue'];
 let colorIndex = 0;
 let fontSize = 16;
 
@@ -72,11 +72,11 @@ document.getElementById('removeItemButton').addEventListener('click', function (
 const hoverBox = document.getElementById('hoverBox');
 
 hoverBox.addEventListener('mouseover', function () {
-    hoverBox.style.backgroundColor = '#ffb74d';
+    hoverBox.style.backgroundColor = 'yellow';
 });
 
 hoverBox.addEventListener('mouseout', function () {
-    hoverBox.style.backgroundColor = '#90caf9';
+    hoverBox.style.backgroundColor = 'lightblue';
 });
 
 
