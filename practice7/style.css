@@ -1,0 +1,128 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 24px 16px;
+    background: #f4f6fb;
+    color: #222;
+    transition: background 0.4s, color 0.4s;
+}
+
+body.night {
+    background: #1e2230;
+    color: #e8e8e8;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card {
+    background: #fff;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background 0.4s;
+}
+
+body.night .card {
+    background: #2b3042;
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+}
+
+button {
+    padding: 8px 14px;
+    margin: 4px 4px 4px 0;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    background: #2f6fde;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.15s, background 0.2s;
+}
+
+button:hover {
+    background: #1f56b5;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+input,
+select {
+    padding: 7px;
+    margin: 4px 4px 4px 0;
+    font-size: 15px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+}
+
+.greeting {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.more-text {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s, opacity 0.4s;
+}
+
+.more-text.open {
+    max-height: 200px;
+    opacity: 1;
+}
+
+kbd {
+    padding: 2px 6px;
+    border: 1px solid #999;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+#bookList li {
+    margin: 8px 0;
+    animation: fadeIn 0.4s;
+}
+
+#bookList button {
+    margin-left: 10px;
+    padding: 3px 10px;
+    background: #c62828;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.category {
+    font-size: 0.85rem;
+    color: #2f6fde;
+}
+
+body.night .category {
+    color: #8fb4ff;
+}
+
+.error {
+    color: #c62828;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Task 7</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Practice Task 7</h1>
+        <button id="themeButton">Night mode</button>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Greeting</h2>
+            <label for="nameInput">Your name:</label>
+            <input type="text" id="nameInput" placeholder="Type your name">
+            <p id="greeting" class="greeting"></p>
+        </section>
+
+        <section class="card">
+            <h2>About JavaScript</h2>
+            <p>JavaScript is the language that makes web pages interactive.</p>
+            <div id="moreText" class="more-text">
+                <p>With JavaScript you can react to clicks and key presses, change text and styles,
+                    add and remove elements, and play sounds. It runs right in the browser,
+                    so you do not need to install anything.</p>
+            </div>
+            <button id="readMoreButton">Read More</button>
+        </section>
+
+        <section class="card">
+            <h2>Current time</h2>
+            <button id="timeButton">Show time</button>
+            <p id="timeText"></p>
+        </section>
+
+        <section class="card">
+            <h2>Keyboard shortcuts</h2>
+            <p>Press <kbd>N</kbd> to switch Day / Night mode, <kbd>T</kbd> to show the time.</p>
+            <p>Last key: <span id="lastKey">—</span></p>
+        </section>
+
+        <section class="card">
+            <h2>My books</h2>
+            <form id="bookForm">
+                <input type="text" id="bookTitle" placeholder="Title">
+                <input type="text" id="bookAuthor" placeholder="Author">
+                <select id="bookCategory">
+                    <option value="Fiction">Fiction</option>
+                    <option value="Science">Science</option>
+                    <option value="History">History</option>
+                </select>
+                <button type="submit">Add book</button>
+            </form>
+            <p id="bookError" class="error"></p>
+
+            <label for="filterSelect">Show:</label>
+            <select id="filterSelect">
+                <option value="All">All</option>
+                <option value="Fiction">Fiction</option>
+                <option value="Science">Science</option>
+                <option value="History">History</option>
+            </select>
+
+            <ul id="bookList"></ul>
+            <p id="bookStats"></p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
