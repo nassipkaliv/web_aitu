@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice task</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 24px 16px;
+            color: #222;
+            background: #f4f6fb;
+            transition: background 0.3s;
+        }
+        h1 { text-align: center; }
+        .card {
+            background: #fff;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .card h2 { margin-top: 0; font-size: 1.15rem; }
+        input {
+            padding: 8px;
+            font-size: 1rem;
+            border: 1px solid #bbb;
+            border-radius: 5px;
+        }
+        #numbersInput { width: 100%; box-sizing: border-box; margin-bottom: 10px; }
+        button {
+            padding: 8px 14px;
+            margin: 4px 4px 4px 0;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background: #2f6fde;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover { background: #1f56b5; }
+        .result { margin-top: 10px; font-weight: bold; }
+        .error { color: #c62828; }
+        .success { color: #2e7d32; }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Interactivity</h1>
+
+    <div class="card">
+        <h2>Current date and time</h2>
+        <p id="dateTime"></p>
+    </div>
+
+    <div class="card">
+        <h2>Number Sorting Tool</h2>
+        <label for="numbersInput">Enter numbers separated by commas:</label>
+        <input type="text" id="numbersInput" placeholder="8, 3, 12, 1">
+        <button id="sortAscBtn">Sort ascending</button>
+        <button id="sortDescBtn">Sort descending</button>
+        <div class="result" id="sortResult"></div>
+    </div>
+
+    <div class="card">
+        <h2>Page background</h2>
+        <button id="bgBtn">Change background</button>
+        <p id="bgName">Current color: #f4f6fb</p>
+    </div>
+
+    <div class="card">
+        <h2>Guess the number (1–100)</h2>
+        <input type="number" id="guessInput" min="1" max="100" placeholder="Your guess">
+        <button id="guessBtn">Guess</button>
+        <button id="newGameBtn">New game</button>
+        <div class="result" id="guessResult"></div>
+        <p id="attempts">Attempts: 0</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

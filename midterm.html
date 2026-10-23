@@ -28,6 +28,7 @@
                         <li class="nav-item"><a class="nav-link fw-semibold" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link fw-semibold" href="#skills">Skills</a></li>
                         <li class="nav-item"><a class="nav-link fw-semibold" href="#trip">Trip</a></li>
+                        <li class="nav-item"><a class="nav-link fw-semibold" href="#register">Register</a></li>
                         <li class="nav-item"><a class="nav-link fw-semibold" href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -241,7 +242,147 @@
             </div>
         </section>
 
-        <section id="contact" class="bg-white border-top py-5">
+        <section id="register" class="bg-white border-top py-5">
+            <div class="container">
+                <div class="row g-4 g-lg-5">
+                    <div class="col-12 col-lg-4">
+                        <h2 class="fw-bold mb-3">Create an account</h2>
+                        <p class="text-body-secondary mb-4">
+                            Sign up to get news about my new projects, small articles about frontend and the code I share on GitHub.
+                        </p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fa-solid fa-check text-success me-2" aria-hidden="true"></i>Updates about new projects</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-success me-2" aria-hidden="true"></i>Early access to my articles</li>
+                            <li><i class="fa-solid fa-check text-success me-2" aria-hidden="true"></i>No spam, unsubscribe any time</li>
+                        </ul>
+                        <div class="alert alert-info small mb-0" role="note">
+                            <i class="fa-solid fa-circle-info me-1" aria-hidden="true"></i>
+                            Fields marked with <span class="text-danger fw-bold">*</span> are required.
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-8">
+                        <div id="registerFormSuccess" class="alert alert-success d-none" role="alert">Registration complete! Your account was created.</div>
+                        <form id="registerForm" class="border rounded-3 shadow-sm p-3 p-md-4">
+                            <div class="row g-3">
+                                <div class="col-12 col-md-6">
+                                    <label for="firstName" class="form-label">First name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Your first name" minlength="2" maxlength="30" pattern="[A-Za-zА-Яа-яЁёӘәІіҢңҒғҮүҰұҚқӨөҺһ\s\-]+" title="Use only letters." autocomplete="given-name" required>
+                                    <div class="valid-feedback">Looks good!</div>
+                                    <div class="invalid-feedback">Enter your first name (2–30 letters).</div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="lastName" class="form-label">Last name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Your last name" minlength="2" maxlength="30" pattern="[A-Za-zА-Яа-яЁёӘәІіҢңҒғҮүҰұҚқӨөҺһ\s\-]+" title="Use only letters." autocomplete="family-name" required>
+                                    <div class="valid-feedback">Looks good!</div>
+                                    <div class="invalid-feedback">Enter your last name (2–30 letters).</div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="regEmail" class="form-label">Email <span class="text-danger">*</span></label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+                                        <input type="email" class="form-control" id="regEmail" name="email" placeholder="name@mail.com" maxlength="100" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Email should look like name@mail.com." autocomplete="email" aria-describedby="regEmailHelp" required>
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Enter a valid email, for example name@mail.com.</div>
+                                    </div>
+                                    <div id="regEmailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                                    <input type="password" class="form-control" id="password" name="password" minlength="8" maxlength="32" pattern="(?=.*[A-Za-z])(?=.*\d).+" title="Use letters and at least one number." autocomplete="new-password" aria-describedby="passwordHelp" required>
+                                    <div class="valid-feedback">Strong enough!</div>
+                                    <div class="invalid-feedback">Password must be 8–32 characters with letters and a number.</div>
+                                    <div id="passwordHelp" class="form-text">8–32 characters, letters and at least one number.</div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="confirmPassword" class="form-label">Confirm password <span class="text-danger">*</span></label>
+                                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" autocomplete="new-password" required>
+                                    <div class="valid-feedback">Passwords match!</div>
+                                    <div class="invalid-feedback">Passwords do not match.</div>
+                                </div>
+
+                                <fieldset class="col-12 col-md-6">
+                                    <legend class="form-label fs-6 mb-2">Gender <span class="text-danger">*</span></legend>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" id="genderMale" value="Male" required>
+                                        <label class="form-check-label" for="genderMale">Male</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="Female" required>
+                                        <label class="form-check-label" for="genderFemale">Female</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" id="genderOther" value="Prefer not to say" required>
+                                        <label class="form-check-label" for="genderOther">Prefer not to say</label>
+                                    </div>
+                                </fieldset>
+                                <div class="col-12 col-md-6">
+                                    <label for="country" class="form-label">Country <span class="text-danger">*</span></label>
+                                    <select class="form-select" id="country" name="country" autocomplete="country-name" required>
+                                        <option selected disabled value="">Choose your country...</option>
+                                        <option>Kazakhstan</option>
+                                        <option>Kyrgyzstan</option>
+                                        <option>Uzbekistan</option>
+                                        <option>Russia</option>
+                                        <option>Turkey</option>
+                                        <option>Germany</option>
+                                        <option>USA</option>
+                                        <option>Other</option>
+                                    </select>
+                                    <div class="valid-feedback">Looks good!</div>
+                                    <div class="invalid-feedback">Country is required.</div>
+                                </div>
+
+                                <fieldset class="col-12">
+                                    <legend class="form-label fs-6 mb-2">Hobbies</legend>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="hobbies" id="hobbySport" value="Sport">
+                                        <label class="form-check-label" for="hobbySport">Sport</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="hobbies" id="hobbyTravel" value="Traveling">
+                                        <label class="form-check-label" for="hobbyTravel">Traveling</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="hobbies" id="hobbyMusic" value="Music">
+                                        <label class="form-check-label" for="hobbyMusic">Music</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="hobbies" id="hobbyGames" value="Gaming">
+                                        <label class="form-check-label" for="hobbyGames">Gaming</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="hobbies" id="hobbyReading" value="Reading">
+                                        <label class="form-check-label" for="hobbyReading">Reading</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="hobbies" id="hobbyCoding" value="Coding">
+                                        <label class="form-check-label" for="hobbyCoding">Coding</label>
+                                    </div>
+                                </fieldset>
+
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="terms" name="terms" required>
+                                        <label class="form-check-label" for="terms">I agree to the terms of use <span class="text-danger">*</span></label>
+                                        <div class="invalid-feedback">You must agree before signing up.</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 d-flex flex-wrap gap-2 pt-2">
+                                    <button type="submit" class="btn btn-primary btn-lg" id="registerButton">Create account</button>
+                                    <button type="reset" class="btn btn-outline-secondary btn-lg">Reset</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="border-top py-5">
             <div class="container">
                 <h2 class="fw-bold mb-4">Contact</h2>
                 <div class="row g-5">
@@ -266,30 +407,37 @@
                     </div>
 
                     <div class="col-12 col-md-7 col-lg-6">
-                        <form class="border rounded-3 p-3 p-md-4">
+                        <div id="contactFormSuccess" class="alert alert-success d-none" role="alert">Thank you! Your message was sent.</div>
+                        <form id="contactForm" class="bg-white border rounded-3 p-3 p-md-4" action="#" method="post">
                             <div class="row g-3">
                                 <div class="col-12 col-sm-6">
                                     <label for="name" class="form-label">Name</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Your name" required>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Your name" minlength="2" maxlength="50" autocomplete="name" required>
+                                    <div class="valid-feedback">Looks good!</div>
+                                    <div class="invalid-feedback">Enter your name (2–50 characters).</div>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <label for="email" class="form-label">Email</label>
-                                    <div class="input-group">
+                                    <div class="input-group has-validation">
                                         <span class="input-group-text" id="emailIcon">@</span>
-                                        <input type="email" class="form-control" id="email" placeholder="name@mail.com" aria-describedby="emailIcon" required>
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="name@mail.com" maxlength="100" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Email should look like name@mail.com." autocomplete="email" aria-describedby="emailIcon" required>
+                                        <div class="valid-feedback">Looks good!</div>
+                                        <div class="invalid-feedback">Enter a valid email, for example name@mail.com.</div>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <label for="topic" class="form-label">Topic</label>
-                                    <select class="form-select" id="topic">
+                                    <select class="form-select" id="topic" name="topic" required>
                                         <option selected disabled value="">Choose...</option>
                                         <option>Job offer</option>
                                         <option>Freelance project</option>
                                         <option>Just saying hi</option>
                                     </select>
+                                    <div class="valid-feedback">Looks good!</div>
+                                    <div class="invalid-feedback">Topic is required.</div>
                                 </div>
-                                <div class="col-12">
-                                    <span class="form-label d-block">Reply via</span>
+                                <fieldset class="col-12">
+                                    <legend class="form-label fs-6 mb-2">Reply via</legend>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="reply" id="replyEmail" value="email" checked>
                                         <label class="form-check-label" for="replyEmail">Email</label>
@@ -298,15 +446,19 @@
                                         <input class="form-check-input" type="radio" name="reply" id="replyTelegram" value="telegram">
                                         <label class="form-check-label" for="replyTelegram">Telegram</label>
                                     </div>
-                                </div>
+                                </fieldset>
                                 <div class="col-12">
                                     <label for="message" class="form-label">Message</label>
-                                    <textarea class="form-control" id="message" rows="4" required></textarea>
+                                    <textarea class="form-control" id="message" name="message" rows="4" placeholder="Hi Yernur, I want to talk about..." minlength="10" maxlength="500" aria-describedby="messageHelp" required></textarea>
+                                    <div class="valid-feedback">Looks good!</div>
+                                    <div class="invalid-feedback">Message must be 10–500 characters.</div>
+                                    <div id="messageHelp" class="form-text">From 10 to 500 characters.</div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="agree" required>
+                                        <input class="form-check-input" type="checkbox" id="agree" name="agree" required>
                                         <label class="form-check-label" for="agree">I agree to be contacted back</label>
+                                        <div class="invalid-feedback">You need to agree before sending.</div>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -332,5 +484,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="js/forms.js"></script>
 </body>
 </html>

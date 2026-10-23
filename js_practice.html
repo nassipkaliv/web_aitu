@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 24px 16px;
+            background: #f4f6fb;
+            color: #222;
+        }
+
+        .task {
+            background: #fff;
+            padding: 16px;
+            margin-bottom: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Practice</h1>
+    <div class="task">
+        <h2>1. Alerts</h2>
+        <p>On page load: welcome alert, then prompt() for your name and a greeting.</p>
+        <button id="alertBtn">Run again</button>
+        <div class="output" id="alertOutput"></div>
+    </div>
+
+    <div class="task">
+        <h2>2. Data Types</h2>
+        <p>String, Number, Boolean, Null and Undefined variables are logged to the console.</p>
+        <div class="output" id="typesOutput"></div>
+    </div>
+
+    <div class="task">
+        <h2>3. Variables x and y</h2>
+        <button id="sumBtn">Show x + y</button>
+        <div class="output" id="sumOutput"></div>
+    </div>
+
+    <div class="task">
+        <h2>4. String Concatenation</h2>
+        <button id="nameBtn">Show full name</button>
+        <div class="output" id="nameOutput"></div>
+    </div>
+
+    <div class="task">
+        <h2>5. Arithmetic and Modulo</h2>
+        <input type="number" id="number1" placeholder="Number 1">
+        <input type="number" id="number2" placeholder="Number 2">
+        <button id="calculateButton">Calculate</button>
+        <div class="output" id="calcOutput"></div>
+    </div>
+
+    <div class="task">
+        <h2>6. Increment and Decrement</h2>
+        <p>counter++ and counter-- are logged to the console.</p>
+        <div class="output" id="counterOutput"></div>
+    </div>
+
+    <div class="task">
+        <h2>7. Functions</h2>
+        <input type="text" id="greetName" placeholder="Your name">
+        <button id="greetBtn">greetUser()</button>
+        <div class="output" id="greetOutput"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

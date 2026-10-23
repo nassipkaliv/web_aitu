@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 5 — JavaScript Basics</title>
+    <link rel="stylesheet" href="css/assignment5.css">
+</head>
+<body>
+    <h1>Assignment 5. JavaScript Basics</h1>
+    <p class="subtitle">Yernur Nassipkali, SE-2517</p>
+
+    <h2 class="part">Part 1. Introduction to JavaScript</h2>
+
+    <section class="task" id="task0">
+        <h3>Task 0. First Script</h3>
+        <p>My name and group are printed in the console. The alert “Hello, JavaScript World!” appears when the page opens.</p>
+    </section>
+
+    <section class="task" id="task1">
+        <h3>Task 1. Variables &amp; Operators</h3>
+        <p>Variables, arithmetic and string concatenation are printed in the console (F12 → Console).</p>
+    </section>
+
+    <h2 class="part">Part 2. DOM Manipulation</h2>
+
+    <section class="task" id="task2">
+        <h3>Task 2. Changing Content</h3>
+        <p id="changeText">This is the old text of the paragraph.</p>
+        <button id="changeTextButton">Change text</button>
+    </section>
+
+    <section class="task" id="task3">
+        <h3>Task 3. Changing Styles</h3>
+        <div id="styleBox">This is a block. Its color and font size can be changed.</div>
+        <button id="colorButton">Change color</button>
+        <button id="fontButton">Change font size</button>
+    </section>
+
+    <section class="task" id="task4">
+        <h3>Task 4. Creating &amp; Removing Elements</h3>
+        <ul id="itemList">
+            <li>Item 1</li>
+            <li>Item 2</li>
+        </ul>
+        <button id="addItemButton">Add Item</button>
+        <button id="removeItemButton">Remove Item</button>
+    </section>
+
+    <h2 class="part">Part 3. Events</h2>
+
+    <section class="task" id="task5">
+        <h3>Task 5. Mouse Events</h3>
+        <div id="hoverBox">Move the mouse over me</div>
+    </section>
+
+    <section class="task" id="task6">
+        <h3>Task 6. Keyboard Events</h3>
+        <label for="typingInput">Type something:</label>
+        <input type="text" id="typingInput">
+        <p>You typed: <span id="typingOutput"></span></p>
+    </section>
+
+    <section class="task" id="task7">
+        <h3>Task 7. Form Validation</h3>
+        <form id="signupForm">
+            <label for="name">Name</label>
+            <input type="text" id="name" autocomplete="name">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" autocomplete="email">
+
+            <label for="password">Password</label>
+            <input type="password" id="password" autocomplete="new-password">
+
+            <button type="submit">Submit</button>
+        </form>
+        <p id="formMessage"></p>
+    </section>
+
+    <h2 class="part">Part 4. Mini Project — Interactive To-Do List</h2>
+
+    <section class="task" id="task8">
+        <h3>Task 8. To-Do App</h3>
+        <input type="text" id="taskInput" placeholder="New task">
+        <button id="addTaskButton">Add Task</button>
+        <ul id="taskList"></ul>
+    </section>
+
+    <script src="js/assignment5.js"></script>
+</body>
+</html>
