@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 24px 16px;
+    background: #f4f6fb;
+    color: #222;
+}
+
+h1 {
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    margin-top: 0;
+    color: #666;
+}
+
+.part {
+    margin-top: 32px;
+    font-size: 1.3rem;
+}
+
+.task {
+    background: #fff;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task h3 {
+    margin-top: 0;
+}
+
+button {
+    padding: 8px 14px;
+    margin: 4px 4px 4px 0;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    background: #2f6fde;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1f56b5;
+}
+
+input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 7px;
+    margin: 4px 0 10px;
+    font-size: 15px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+}
+
+.image-box {
+    height: 220px;
+    margin-top: 10px;
+}
+
+img {
+    width: 320px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+#panel {
+    padding: 20px;
+    margin-top: 10px;
+    background: #bbdefb;
+    border-radius: 6px;
+}
+
+.stage {
+    position: relative;
+    height: 260px;
+    margin-top: 10px;
+    border: 1px dashed #bbb;
+    border-radius: 6px;
+}
+
+.box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80px;
+    height: 80px;
+    background: #ff7043;
+}
+
+.accordion-header {
+    display: block;
+    width: 100%;
+    margin: 6px 0 0;
+    text-align: left;
+}
+
+.accordion-content {
+    display: none;
+    padding: 12px;
+    background: #eef3ff;
+    border-radius: 0 0 5px 5px;
+}

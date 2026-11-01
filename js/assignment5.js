@@ -1,6 +1,6 @@
 console.log('Name: Yernur Nassipkali');
 console.log('Group: SE-2517');
-alert('Hello, JavaScript World!');
+alert('Hello World!');
 
 
 let university = 'Astana IT University';
