@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product | FADEAWAY</title>
+    <meta name="description" content="Photos, price and details of a sneaker in the FADEAWAY store.">
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header id="header" class="site-header fixed-top">
+        <nav class="navbar navbar-expand-lg p-0">
+            <div class="container">
+                <a class="navbar-brand logo" href="index.html">FADEAWAY</a>
+
+                <div class="header-icons ms-auto order-lg-3">
+                    <button type="button" class="icon-btn" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Search">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <a class="icon-btn" href="cart.html" aria-label="Cart">
+                        <i class="bi bi-cart3"></i>
+                        <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+                    </a>
+                    <div class="dropdown">
+                        <button type="button" class="icon-btn" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account">
+                            <i class="bi bi-person"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end user-menu">
+                            <h2 id="userGreeting">Hello!</h2>
+                            <p id="userHint">Sign in to check out your order.</p>
+                            <a class="btn btn-red" id="loginLink" href="login.html">Login / Signup</a>
+                            <button type="button" class="btn btn-outline-dark" id="logoutBtn">Logout</button>
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="products.html">All Products</a></li>
+                                <li><a href="cart.html">Cart</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Menu">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <div class="collapse navbar-collapse order-lg-2" id="mainNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="products.html">All Products</a></li>
+                        <li class="nav-item"><a class="nav-link" href="products.html?brand=Nike">Nike</a></li>
+                        <li class="nav-item"><a class="nav-link" href="products.html?brand=Adidas">Adidas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="products.html?brand=New%20Balance">New Balance</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page">
+        <div id="notFound" class="empty-state container" style="display: none;">
+            <i class="bi bi-exclamation-circle"></i>
+            <h1>Product not found</h1>
+            <a class="btn btn-red" href="products.html">Browse all products</a>
+        </div>
+
+        <div id="productPage">
+            <section class="container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="products.html">All Products</a></li>
+                        <li class="breadcrumb-item active" aria-current="page" id="crumbTitle"></li>
+                    </ol>
+                </nav>
+
+                <div class="row g-4 g-lg-5">
+                    <div class="col-lg-7">
+                        <div class="row g-3">
+                            <div class="col-12 col-md-2 order-2 order-md-1" id="thumbsColumn">
+                                <div class="thumbs" id="thumbs"></div>
+                            </div>
+                            <div class="col-12 col-md-10 order-1 order-md-2" id="photoColumn">
+                                <div class="main-photo">
+                                    <img id="mainPhoto" src="" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <p class="detail-brand" id="brand"></p>
+                        <h1 class="detail-title" id="title"></h1>
+                        <div id="stars"></div>
+                        <p class="detail-price" id="price"></p>
+                        <p class="detail-saved" id="saved"></p>
+                        <span class="in-stock"><i class="bi bi-check-lg"></i> In Stock</span>
+                        <p class="detail-description" id="description"></p>
+                        <div class="buy-row">
+                            <div class="quantity-box">
+                                <button type="button" id="minusBtn" aria-label="Less">&minus;</button>
+                                <span id="quantity">1</span>
+                                <button type="button" id="plusBtn" aria-label="More">+</button>
+                            </div>
+                            <button type="button" class="btn btn-red" id="addBtn">Add to cart</button>
+                        </div>
+                        <ul class="detail-perks">
+                            <li><i class="bi bi-truck"></i>Ships in 24 hours, free delivery</li>
+                            <li><i class="bi bi-shield-check"></i>100% original product</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="container">
+                    <ul class="nav nav-tabs detail-tabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#specs" type="button" role="tab" aria-controls="specs" aria-selected="true">Specifications</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab" aria-controls="overview" aria-selected="false">Overview</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="specs" role="tabpanel">
+                            <table class="table spec-table">
+                                <tbody>
+                                    <tr><th scope="row">Brand</th><td id="specBrand"></td></tr>
+                                    <tr><th scope="row">Model</th><td id="specModel"></td></tr>
+                                    <tr><th scope="row">Category</th><td id="specCategory"></td></tr>
+                                    <tr><th scope="row">Colour</th><td id="specColor"></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade" id="overview" role="tabpanel">
+                            <p id="overviewText"></p>
+                            <ul class="mb-0">
+                                <li>Comfortable to wear every day</li>
+                                <li>100% original, with the brand box</li>
+                                <li>Ships in 24 hours</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section pt-0">
+                <div class="container">
+                    <div class="section-head">
+                        <h2>Related Products</h2>
+                    </div>
+                    <div class="row row-cols-2 row-cols-md-4 g-3 g-lg-4" id="related"></div>
+                </div>
+            </section>
+        </div>
+
+        <section class="section services">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+                    <div class="col">
+                        <div class="service">
+                            <i class="bi bi-truck"></i>
+                            <div>
+                                <h3>Express Delivery</h3>
+                                <p>Ships in 24 hours</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="service">
+                            <i class="bi bi-shield-check"></i>
+                            <div>
+                                <h3>Brand Warranty</h3>
+                                <p>100% original products</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="service">
+                            <i class="bi bi-tags"></i>
+                            <div>
+                                <h3>Exciting Deals</h3>
+                                <p>On all prepaid orders</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="service">
+                            <i class="bi bi-credit-card"></i>
+                            <div>
+                                <h3>Secure Payments</h3>
+                                <p>SSL / Secure certificate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-12 col-lg-5">
+                    <a class="logo" href="index.html">FADEAWAY</a>
+                    <p class="mt-3">Subscribe to our email alerts to get early discount offers and news about new products.</p>
+                    <form class="subscribe-form" id="subscribeForm" novalidate>
+                        <div class="row g-2">
+                            <div class="col-12 col-sm-8">
+                                <label class="visually-hidden" for="subscribeEmail">Email address</label>
+                                <input type="email" class="form-control" id="subscribeEmail" placeholder="Email address" autocomplete="email">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <button type="submit" class="btn btn-red w-100">Subscribe</button>
+                            </div>
+                        </div>
+                    </form>
+                    <p id="subscribeOk">Thank you! You are subscribed now.</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 offset-lg-1">
+                    <h2>Shop</h2>
+                    <ul>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="products.html?brand=Nike">Nike</a></li>
+                        <li><a href="products.html?brand=Adidas">Adidas</a></li>
+                        <li><a href="products.html?brand=New%20Balance">New Balance</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <h2>Account</h2>
+                    <ul>
+                        <li><a href="login.html">Sign in</a></li>
+                        <li><a href="login.html#register">Create account</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-4 col-lg-2">
+                    <h2>Contact</h2>
+                    <ul>
+                        <li><a href="https://github.com/nassipkaliv" target="_blank" rel="noopener">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; <span id="year">2026</span> FADEAWAY. All Rights Reserved.</span>
+                <span>Built by <a href="https://github.com/nassipkaliv" target="_blank" rel="noopener">Nassipkali Yernur</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <button type="button" id="backTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+    <div class="toast-container position-fixed bottom-0 start-0 p-3">
+        <div class="toast" id="cartToast" role="status" aria-live="polite" data-bs-delay="2500">
+            <div class="d-flex align-items-center gap-3 p-3">
+                <i class="bi bi-check-circle-fill"></i>
+                <span class="flex-grow-1" id="toastText"></span>
+                <a href="cart.html">View cart</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-label="Search products" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form class="search-box" id="searchForm" role="search">
+                    <i class="bi bi-search"></i>
+                    <label class="visually-hidden" for="searchInput">Search for a product</label>
+                    <input type="search" class="form-control" id="searchInput" placeholder="Search for a product..." autocomplete="off">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </form>
+                <div id="searchResults"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="lib/jquery-3.7.1.min.js"></script>
+    <script src="lib/bootstrap.bundle.min.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/product.js"></script>
+</body>
+</html>
