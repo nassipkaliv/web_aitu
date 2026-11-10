@@ -63,11 +63,16 @@ function checkRegisterForm() {
     return isOk;
 }
 
+function showFormFromLink() {
+    const isRegister = location.hash === '#register';
+    $('#registerBox').toggle(isRegister);
+    $('#loginBox').toggle(!isRegister);
+    $(window).scrollTop(0);
+}
+
 $(document).ready(function () {
-    if (location.hash === '#register') {
-        $('#loginBox').hide();
-        $('#registerBox').show();
-    }
+    showFormFromLink();
+    $(window).on('hashchange', showFormFromLink);
 
     $('#showRegister').click(function (event) {
         event.preventDefault();

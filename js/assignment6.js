@@ -1,127 +1,98 @@
 $(document).ready(function () {
     console.log('jQuery is ready!');
 
-
-    $('#changeButton').click(function () {
-        $('#idText').text('This text was changed by ID');
-        $('.classText').html('This text was changed by <b>class</b>');
-        $('em').text('This text was changed by tag');
-
-        $('#idText').css('color', 'red');
-        $('.classText').css({ color: 'green', 'font-size': '20px' });
-        $('em').css('background-color', 'yellow');
+    $('#changeBtn').click(function () {
+        $('#idText').text('This text was changed by ID').css('color', 'red');
+        $('.classText').html('This text was changed by <b>class</b>').css({ color: 'green', fontSize: '20px' });
+        $('em').text('This text was changed by tag').css('background', 'yellow');
     });
 
-
-    $('#hideButton').click(function () {
-        $('#hideText').hide();
+    $('#hideBtn').click(function () {
+        $('#text').hide();
+    });
+    $('#showBtn').click(function () {
+        $('#text').show();
+    });
+    $('#toggleBtn').click(function () {
+        $('#text').toggle();
     });
 
-    $('#showButton').click(function () {
-        $('#hideText').show();
+    $('#fadeInBtn').click(function () {
+        $('#fadeImg').fadeIn(800);
+    });
+    $('#fadeOutBtn').click(function () {
+        $('#fadeImg').fadeOut(800);
+    });
+    $('#fadeToggleBtn').click(function () {
+        $('#fadeImg').fadeToggle(800);
     });
 
-    $('#toggleButton').click(function () {
-        $('#hideText').toggle();
-    });
-
-
-    $('#fadeInButton').click(function () {
-        $('#fadeImage').fadeIn(800);
-    });
-
-    $('#fadeOutButton').click(function () {
-        $('#fadeImage').fadeOut(800);
-    });
-
-    $('#fadeToggleButton').click(function () {
-        $('#fadeImage').fadeToggle(800);
-    });
-
-
-    $('#slideUpButton').click(function () {
+    $('#slideUpBtn').click(function () {
         $('#panel').slideUp();
     });
-
-    $('#slideDownButton').click(function () {
+    $('#slideDownBtn').click(function () {
         $('#panel').slideDown();
     });
-
-    $('#slideToggleButton').click(function () {
+    $('#slideToggleBtn').click(function () {
         $('#panel').slideToggle();
     });
 
+    let count = 3;
 
-    let itemNumber = 3;
-
-    $('#addItemButton').click(function () {
-        $('#list').append('<li>Item ' + itemNumber + '</li>');
-        itemNumber++;
+    $('#addBtn').click(function () {
+        $('#list').append('<li>Item ' + count + '</li>');
+        count++;
     });
-
-    $('#addFirstButton').click(function () {
-        $('#list').prepend('<li>Item ' + itemNumber + '</li>');
-        itemNumber++;
+    $('#addTopBtn').click(function () {
+        $('#list').prepend('<li>Item ' + count + '</li>');
+        count++;
     });
-
-    $('#removeItemButton').click(function () {
+    $('#removeBtn').click(function () {
         $('#list li').last().remove();
     });
 
-
-    $('#changeImageButton').click(function () {
-        if ($('#photo').attr('src') === 'images/gallery-img1.jpeg') {
+    $('#imgBtn').click(function () {
+        let src = $('#photo').attr('src');
+        if (src == 'images/gallery-img1.jpeg') {
             $('#photo').attr('src', 'images/gallery-img3.jpeg');
         } else {
             $('#photo').attr('src', 'images/gallery-img1.jpeg');
         }
     });
-
-    $('#changeLinkButton').click(function () {
-        $('#link').attr('href', 'https://www.w3schools.com/jquery/');
-        $('#link').text('W3Schools jQuery Tutorial');
+    $('#linkBtn').click(function () {
+        $('#link').attr('href', 'https://www.w3schools.com/jquery/').text('W3Schools jQuery Tutorial');
     });
-
 
     $('#nameInput').on('input', function () {
-        $('#nameOutput').text($('#nameInput').val());
+        $('#nameOutput').text($(this).val());
     });
-
     $('#emailInput').on('input', function () {
-        $('#emailOutput').text($('#emailInput').val());
+        $('#emailOutput').text($(this).val());
     });
 
-
-    $('#animateButton').click(function () {
-        $('#box1').animate({ width: '150px', height: '150px', left: '250px', top: '50px' }, 1000);
+    $('#animateBtn').click(function () {
+        $('#box1').animate({ width: 150, height: 150, left: 250, top: 50 }, 1000);
+    });
+    $('#reset1').click(function () {
+        $('#box1').stop().css({ width: 80, height: 80, left: 0, top: 0 });
     });
 
-    $('#resetButton1').click(function () {
-        $('#box1').stop().css({ width: '80px', height: '80px', left: '0px', top: '0px' });
+    $('#startBtn').click(function () {
+        $('#box2').animate({ left: 300 }, 800);
+        $('#box2').animate({ top: 150 }, 800);
+        $('#box2').animate({ width: 40, height: 40 }, 800);
+        $('#box2').animate({ left: 0, top: 0, width: 80, height: 80 }, 800);
     });
 
-
-    $('#sequenceButton').click(function () {
-        $('#box2')
-            .animate({ left: '300px' }, 800)
-            .animate({ top: '150px' }, 800)
-            .animate({ width: '40px', height: '40px' }, 800)
-            .animate({ left: '0px', top: '0px', width: '80px', height: '80px' }, 800);
+    $('#combineBtn').click(function () {
+        $('#box3').animate({ opacity: 0.3, width: 160, height: 160, left: 300, top: 50 }, 1500);
     });
-
-
-    $('#combineButton').click(function () {
-        $('#box3').animate({ opacity: 0.3, width: '160px', height: '160px', left: '300px', top: '50px' }, 1500);
+    $('#reset3').click(function () {
+        $('#box3').stop().css({ opacity: 1, width: 80, height: 80, left: 0, top: 0 });
     });
-
-    $('#resetButton3').click(function () {
-        $('#box3').stop().css({ opacity: 1, width: '80px', height: '80px', left: '0px', top: '0px' });
-    });
-
 
     $('.accordion-header').click(function () {
-        const content = $(this).next();
-        $('.accordion-content').not(content).slideUp();
-        content.slideToggle();
+        $('.accordion-content').not($(this).next()).slideUp();
+        $(this).next().slideToggle();
     });
 });
