@@ -71,8 +71,8 @@ function clearFilters() {
     $('#priceRange').val(maxPrice);
     $('#sortSelect').val('default');
     history.replaceState(null, '', 'products.html');
-    $('.nav-link').removeClass('active');
-    $('.nav-link[href="products.html"]').addClass('active');
+    $('.nav-link').removeClass('active').removeAttr('aria-current');
+    $('.nav-link[href="products.html"]').addClass('active').attr('aria-current', 'page');
     showProducts();
 }
 
@@ -84,8 +84,8 @@ $(document).ready(function () {
         $('input[name="brand"]').filter(function () {
             return $(this).val() === brand;
         }).prop('checked', true);
-        $('.nav-link').removeClass('active');
-        $('.nav-link[href="products.html?brand=' + encodeURIComponent(brand) + '"]').addClass('active');
+        $('.nav-link').removeClass('active').removeAttr('aria-current');
+        $('.nav-link[href="products.html?brand=' + encodeURIComponent(brand) + '"]').addClass('active').attr('aria-current', 'page');
     }
 
     showProducts();

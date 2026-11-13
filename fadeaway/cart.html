@@ -6,33 +6,42 @@
     <title>Cart | FADEAWAY</title>
     <meta name="description" content="Your shopping cart in the FADEAWAY store.">
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <script>
+        if (localStorage.getItem('fadeaway-theme') === 'dark') {
+            document.documentElement.setAttribute('data-bs-theme', 'dark');
+        }
+    </script>
     <link rel="stylesheet" href="lib/bootstrap.min.css">
     <link rel="stylesheet" href="lib/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <a class="skip-link visually-hidden-focusable" href="#main">Skip to main content</a>
     <header id="header" class="site-header fixed-top">
         <nav class="navbar navbar-expand-lg p-0">
             <div class="container">
                 <a class="navbar-brand logo" href="index.html">FADEAWAY</a>
 
                 <div class="header-icons ms-auto order-lg-3">
+                    <button type="button" class="icon-btn" id="themeBtn" aria-label="Switch to dark mode">
+                        <i class="bi bi-moon" aria-hidden="true"></i>
+                    </button>
                     <button type="button" class="icon-btn" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Search">
-                        <i class="bi bi-search"></i>
+                        <i class="bi bi-search" aria-hidden="true"></i>
                     </button>
                     <a class="icon-btn" href="cart.html" aria-label="Cart">
-                        <i class="bi bi-cart3"></i>
+                        <i class="bi bi-cart3" aria-hidden="true"></i>
                         <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
                     </a>
                     <div class="dropdown">
                         <button type="button" class="icon-btn" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account">
-                            <i class="bi bi-person"></i>
+                            <i class="bi bi-person" aria-hidden="true"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end user-menu">
                             <h2 id="userGreeting">Hello!</h2>
                             <p id="userHint">Sign in to check out your order.</p>
                             <a class="btn btn-red" id="loginLink" href="login.html">Login / Signup</a>
-                            <button type="button" class="btn btn-outline-dark" id="logoutBtn">Logout</button>
+                            <button type="button" class="btn btn-line" id="logoutBtn">Logout</button>
                             <ul>
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="products.html">All Products</a></li>
@@ -43,7 +52,7 @@
                 </div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Menu">
-                    <i class="bi bi-list"></i>
+                    <i class="bi bi-list" aria-hidden="true"></i>
                 </button>
 
                 <div class="collapse navbar-collapse order-lg-2" id="mainNav">
@@ -59,10 +68,10 @@
         </nav>
     </header>
 
-    <main class="page">
+    <main id="main" class="page">
         <section class="container pb-5">
             <div class="empty-state" id="emptyCart" style="display: none;">
-                <i class="bi bi-cart-x"></i>
+                <i class="bi bi-cart-x" aria-hidden="true"></i>
                 <h1>Your cart is empty</h1>
                 <a class="btn btn-red" href="products.html">Start Shopping</a>
             </div>
@@ -97,23 +106,23 @@
                     <form id="orderForm" novalidate>
                         <div class="mb-3">
                             <label class="form-label" for="orderName">Full name</label>
-                            <input type="text" class="form-control" id="orderName" autocomplete="name">
-                            <div class="invalid-feedback"></div>
+                            <input type="text" class="form-control" id="orderName" autocomplete="name" aria-describedby="orderNameError">
+                            <div class="invalid-feedback" id="orderNameError"></div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="orderPhone">Phone</label>
-                            <input type="tel" class="form-control" id="orderPhone" placeholder="+7 700 123 45 67" autocomplete="tel">
-                            <div class="invalid-feedback"></div>
+                            <input type="tel" class="form-control" id="orderPhone" placeholder="+7 700 123 45 67" autocomplete="tel" aria-describedby="orderPhoneError">
+                            <div class="invalid-feedback" id="orderPhoneError"></div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="orderAddress">Delivery address</label>
-                            <input type="text" class="form-control" id="orderAddress" placeholder="City, street, house" autocomplete="street-address">
-                            <div class="invalid-feedback"></div>
+                            <input type="text" class="form-control" id="orderAddress" placeholder="City, street, house" autocomplete="street-address" aria-describedby="orderAddressError">
+                            <div class="invalid-feedback" id="orderAddressError"></div>
                         </div>
                         <button type="submit" class="btn btn-red w-100">Place order</button>
                     </form>
                     <div id="orderDone">
-                        <i class="bi bi-check-circle-fill"></i>
+                        <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
                         <h3>Thank you for your order!</h3>
                         <p>Your order number is <b id="orderNumber"></b>.</p>
                         <a class="btn btn-red" href="products.html">Continue Shopping</a>
@@ -133,8 +142,8 @@
                         <div class="row g-2">
                             <div class="col-12 col-sm-8">
                                 <label class="visually-hidden" for="subscribeEmail">Email address</label>
-                                <input type="email" class="form-control" id="subscribeEmail" placeholder="Email address" autocomplete="email">
-                                <div class="invalid-feedback"></div>
+                                <input type="email" class="form-control" id="subscribeEmail" placeholder="Email address" autocomplete="email" aria-describedby="subscribeEmailError">
+                                <div class="invalid-feedback" id="subscribeEmailError"></div>
                             </div>
                             <div class="col-12 col-sm-4">
                                 <button type="submit" class="btn btn-red w-100">Subscribe</button>
@@ -174,14 +183,14 @@
         </div>
     </footer>
 
-    <button type="button" id="backTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+    <button type="button" id="backTop" aria-label="Back to top"><i class="bi bi-arrow-up" aria-hidden="true"></i></button>
 
     <div class="toast-container position-fixed bottom-0 start-0 p-3">
-        <div class="toast" id="cartToast" role="status" aria-live="polite" data-bs-delay="2500">
+        <div class="toast" id="siteToast" role="status" aria-live="polite" data-bs-delay="2500">
             <div class="d-flex align-items-center gap-3 p-3">
-                <i class="bi bi-check-circle-fill"></i>
+                <i class="bi bi-check-circle-fill" id="toastIcon" aria-hidden="true"></i>
                 <span class="flex-grow-1" id="toastText"></span>
-                <a href="cart.html">View cart</a>
+                <a href="cart.html" id="toastLink">View cart</a>
             </div>
         </div>
     </div>
@@ -190,12 +199,12 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <form class="search-box" id="searchForm" role="search">
-                    <i class="bi bi-search"></i>
+                    <i class="bi bi-search" aria-hidden="true"></i>
                     <label class="visually-hidden" for="searchInput">Search for a product</label>
                     <input type="search" class="form-control" id="searchInput" placeholder="Search for a product..." autocomplete="off">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </form>
-                <div id="searchResults"></div>
+                <div id="searchResults" aria-live="polite"></div>
             </div>
         </div>
     </div>

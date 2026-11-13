@@ -8,18 +8,56 @@
 :root {
     --red: #e3191e;
     --red-dark: #b91318;
+    --bg: #ffffff;
     --ink: #111111;
     --text: #323232;
     --muted: #6f6f6f;
     --tile: #f4f4f4;
     --line: #e4e4e4;
+    --hover: rgba(0, 0, 0, 0.06);
+    --green: #157a3c;
     --header-height: 72px;
+}
+
+[data-bs-theme="dark"] {
+    --bg: #121212;
+    --ink: #f2f2f2;
+    --text: #d6d6d6;
+    --muted: #a3a3a3;
+    --tile: #1f1f1f;
+    --line: #2e2e2e;
+    --hover: rgba(255, 255, 255, 0.08);
+    --green: #5fd38d;
 }
 
 body {
     font-family: "Montserrat", Helvetica, Arial, sans-serif;
     color: var(--text);
-    background: #fff;
+    background: var(--bg);
+    transition: background 0.2s, color 0.2s;
+}
+
+.skip-link:focus {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 2000;
+    padding: 0.6rem 1rem;
+    background: var(--red);
+    color: #fff;
+    font-weight: 600;
+}
+
+.icon-btn:focus-visible,
+.add-btn:focus-visible,
+.featured-arrow:focus-visible,
+.thumb:focus-visible,
+.remove-btn:focus-visible,
+.navbar-toggler:focus-visible,
+.quantity-box button:focus-visible,
+#backTop:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
 }
 
 ::selection {
@@ -77,6 +115,18 @@ del {
     transition: background 0.2s;
 }
 
+.btn-line {
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    font-weight: 500;
+}
+
+.btn-line:hover,
+.btn-line:focus-visible {
+    background: var(--ink);
+    color: var(--bg);
+}
+
 .btn-red:hover,
 .btn-red:focus-visible,
 .btn-red:active {
@@ -120,7 +170,7 @@ del {
 
 
 .site-header {
-    background: #fff;
+    background: var(--bg);
     box-shadow: 0 1px 0 var(--line);
     transition: background 0.2s, box-shadow 0.2s;
 }
@@ -160,7 +210,7 @@ del {
     font-size: 1.6rem;
 }
 
-.navbar-toggler:focus {
+.navbar-toggler:focus:not(:focus-visible) {
     box-shadow: none;
 }
 
@@ -191,7 +241,7 @@ del {
 }
 
 .icon-btn:hover {
-    background: rgba(0, 0, 0, 0.06);
+    background: var(--hover);
     color: var(--ink);
 }
 
@@ -279,7 +329,7 @@ del {
     width: auto;
     padding: 0;
     transform: translateY(-50%);
-    color: #000;
+    color: var(--ink);
     font-size: clamp(6rem, 16vw, 16rem);
     font-weight: 800;
     letter-spacing: -0.03em;
@@ -314,7 +364,7 @@ del {
 .hero-description {
     max-width: 440px;
     margin-bottom: 1.5rem;
-    color: #555;
+    color: var(--text);
 }
 
 .hero-price {
@@ -376,7 +426,7 @@ del {
 
 .featured-arrow:hover {
     background: var(--ink);
-    color: #fff;
+    color: var(--bg);
 }
 
 .featured-row {
@@ -448,7 +498,7 @@ del {
     height: 40px;
     border: none;
     border-radius: 50%;
-    background: #fff;
+    background: var(--bg);
     color: var(--ink);
     font-size: 1.05rem;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
@@ -487,7 +537,7 @@ del {
     height: 100%;
     min-height: 200px;
     padding: 1.5rem;
-    background: var(--ink);
+    background: #111111;
     color: #fff;
     font-size: 1.4rem;
     font-weight: 700;
@@ -495,9 +545,14 @@ del {
     transition: background 0.2s;
 }
 
-.browse-card:hover {
+.browse-card:hover,
+[data-bs-theme="dark"] .browse-card {
     background: var(--red);
     color: #fff;
+}
+
+[data-bs-theme="dark"] .browse-card:hover {
+    background: var(--red-dark);
 }
 
 
@@ -710,7 +765,7 @@ del {
 
 .detail-saved {
     margin-bottom: 0.3rem;
-    color: #157a3c;
+    color: var(--green);
     font-size: 0.9rem;
     font-weight: 600;
 }
@@ -718,7 +773,7 @@ del {
 .in-stock {
     display: inline-block;
     margin-top: 0.5rem;
-    color: #157a3c;
+    color: var(--green);
     font-size: 0.85rem;
     font-weight: 600;
 }
@@ -917,13 +972,13 @@ del {
 }
 
 .summary-green {
-    color: #157a3c;
+    color: var(--green);
 }
 
 .summary-total {
     padding-top: 1rem;
     margin: 1.2rem 0;
-    border-top: 1px solid #d5d5d5;
+    border-top: 1px solid var(--line);
     color: var(--ink);
     font-size: 1.15rem;
     font-weight: 700;
@@ -944,7 +999,7 @@ del {
 }
 
 #orderDone i {
-    color: #157a3c;
+    color: var(--green);
     font-size: 3.5rem;
 }
 
@@ -1131,18 +1186,35 @@ del {
     border: none;
     border-radius: 50%;
     background: var(--ink);
-    color: #fff;
+    color: var(--bg);
     font-size: 1.1rem;
 }
 
 #backTop:hover {
     background: var(--red);
+    color: #fff;
 }
 
 .toast {
-    --bs-toast-bg: var(--ink);
+    --bs-toast-bg: #111111;
     --bs-toast-color: #fff;
     --bs-toast-border-width: 0;
+}
+
+[data-bs-theme="dark"] .toast {
+    --bs-toast-bg: #262626;
+}
+
+.toast-success #toastIcon {
+    color: #5fd38d;
+}
+
+.toast-info #toastIcon {
+    color: #6ea8fe;
+}
+
+.toast-error #toastIcon {
+    color: #ff8a8d;
 }
 
 .toast a {
@@ -1243,7 +1315,26 @@ del {
 
 @media (max-width: 575.98px) {
     .logo {
-        font-size: 1.25rem;
+        font-size: 1.15rem;
+    }
+
+    .header-icons {
+        gap: 0;
+    }
+
+    .icon-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+    }
+
+    .icon-btn .bi-person {
+        font-size: 1.4rem;
+    }
+
+    .navbar-toggler {
+        margin-left: 0.25rem;
+        padding: 0.25rem 0.4rem;
     }
 
     .section-head h2 {
@@ -1278,6 +1369,16 @@ del {
 
     .browse-card {
         font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 359.98px) {
+    .logo {
+        font-size: 1rem;
+    }
+
+    .icon-btn {
+        width: 32px;
     }
 }
 

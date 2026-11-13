@@ -4,63 +4,24 @@ function goBack() {
 }
 
 function checkLoginForm() {
-    const username = $('#loginName');
-    const password = $('#loginPassword');
-    let isOk = true;
-
-    if (username.val().trim().length < 3) {
-        setFieldError(username, 'Username must have at least 3 characters.');
-        isOk = false;
-    } else {
-        setFieldOk(username);
-    }
-
-    if (password.val().length < 6) {
-        setFieldError(password, 'Password must have at least 6 characters.');
-        isOk = false;
-    } else {
-        setFieldOk(password);
-    }
-
-    return isOk;
+    const results = [
+        checkField($('#loginName'), $('#loginName').val().trim().length >= 3, 'Username must have at least 3 characters.'),
+        checkField($('#loginPassword'), $('#loginPassword').val().length >= 6, 'Password must have at least 6 characters.')
+    ];
+    return !results.includes(false);
 }
 
 function checkRegisterForm() {
-    const username = $('#registerName');
-    const email = $('#registerEmail');
-    const password = $('#registerPassword');
-    const confirm = $('#registerConfirm');
-    let isOk = true;
+    const password = $('#registerPassword').val();
+    const confirm = $('#registerConfirm').val();
 
-    if (username.val().trim().length < 3) {
-        setFieldError(username, 'Username must have at least 3 characters.');
-        isOk = false;
-    } else {
-        setFieldOk(username);
-    }
-
-    if (!isEmail(email.val().trim())) {
-        setFieldError(email, 'Please enter a valid email, for example name@mail.com.');
-        isOk = false;
-    } else {
-        setFieldOk(email);
-    }
-
-    if (password.val().length < 6) {
-        setFieldError(password, 'Password must have at least 6 characters.');
-        isOk = false;
-    } else {
-        setFieldOk(password);
-    }
-
-    if (confirm.val() === '' || confirm.val() !== password.val()) {
-        setFieldError(confirm, 'Passwords do not match.');
-        isOk = false;
-    } else {
-        setFieldOk(confirm);
-    }
-
-    return isOk;
+    const results = [
+        checkField($('#registerName'), $('#registerName').val().trim().length >= 3, 'Username must have at least 3 characters.'),
+        checkField($('#registerEmail'), isEmail($('#registerEmail').val().trim()), 'Please enter a valid email, for example name@mail.com.'),
+        checkField($('#registerPassword'), password.length >= 6, 'Password must have at least 6 characters.'),
+        checkField($('#registerConfirm'), confirm !== '' && confirm === password, 'Passwords do not match.')
+    ];
+    return !results.includes(false);
 }
 
 function showFormFromLink() {
@@ -94,6 +55,8 @@ $(document).ready(function () {
         if (checkLoginForm()) {
             localStorage.setItem(USER_KEY, $('#loginName').val().trim());
             goBack();
+        } else {
+            showToast('Please check the fields marked in red.', 'error');
         }
     });
 
@@ -103,6 +66,8 @@ $(document).ready(function () {
         if (checkRegisterForm()) {
             localStorage.setItem(USER_KEY, $('#registerName').val().trim());
             goBack();
+        } else {
+            showToast('Please check the fields marked in red.', 'error');
         }
     });
 });

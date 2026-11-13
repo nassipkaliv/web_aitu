@@ -24,7 +24,7 @@ function showCart() {
                     </div>
                 </div>
                 <button type="button" class="remove-btn" aria-label="Remove ${product.title}">
-                    <i class="bi bi-trash3"></i>
+                    <i class="bi bi-trash3" aria-hidden="true"></i>
                 </button>
             </div>`);
     });
@@ -73,33 +73,12 @@ function removeItem(id) {
 }
 
 function checkOrderForm() {
-    const name = $('#orderName');
-    const phone = $('#orderPhone');
-    const address = $('#orderAddress');
-    let isOk = true;
-
-    if (name.val().trim().length < 2) {
-        setFieldError(name, 'Please enter your name.');
-        isOk = false;
-    } else {
-        setFieldOk(name);
-    }
-
-    if (phone.val().replace(/\D/g, '').length < 11) {
-        setFieldError(phone, 'Please enter the full number, for example +7 700 123 45 67.');
-        isOk = false;
-    } else {
-        setFieldOk(phone);
-    }
-
-    if (address.val().trim().length < 5) {
-        setFieldError(address, 'Please enter the delivery address.');
-        isOk = false;
-    } else {
-        setFieldOk(address);
-    }
-
-    return isOk;
+    const results = [
+        checkField($('#orderName'), $('#orderName').val().trim().length >= 2, 'Please enter your name.'),
+        checkField($('#orderPhone'), $('#orderPhone').val().replace(/\D/g, '').length >= 11, 'Please enter the full number, for example +7 700 123 45 67.'),
+        checkField($('#orderAddress'), $('#orderAddress').val().trim().length >= 5, 'Please enter the delivery address.')
+    ];
+    return !results.includes(false);
 }
 
 $(document).ready(function () {
@@ -142,6 +121,7 @@ $(document).ready(function () {
         event.preventDefault();
 
         if (!checkOrderForm()) {
+            showToast('Please check the delivery details.', 'error');
             return;
         }
 

@@ -55,7 +55,7 @@ $(document).ready(function () {
     $('#topProducts').append(`
         <div class="col">
             <a class="browse-card" href="products.html">
-                Browse All <br> Products <i class="bi bi-arrow-right"></i>
+                Browse All <br> Products <i class="bi bi-arrow-right" aria-hidden="true"></i>
             </a>
         </div>`);
 });

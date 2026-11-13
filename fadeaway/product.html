@@ -6,33 +6,42 @@
     <title>Product | FADEAWAY</title>
     <meta name="description" content="Photos, price and details of a sneaker in the FADEAWAY store.">
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <script>
+        if (localStorage.getItem('fadeaway-theme') === 'dark') {
+            document.documentElement.setAttribute('data-bs-theme', 'dark');
+        }
+    </script>
     <link rel="stylesheet" href="lib/bootstrap.min.css">
     <link rel="stylesheet" href="lib/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <a class="skip-link visually-hidden-focusable" href="#main">Skip to main content</a>
     <header id="header" class="site-header fixed-top">
         <nav class="navbar navbar-expand-lg p-0">
             <div class="container">
                 <a class="navbar-brand logo" href="index.html">FADEAWAY</a>
 
                 <div class="header-icons ms-auto order-lg-3">
+                    <button type="button" class="icon-btn" id="themeBtn" aria-label="Switch to dark mode">
+                        <i class="bi bi-moon" aria-hidden="true"></i>
+                    </button>
                     <button type="button" class="icon-btn" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Search">
-                        <i class="bi bi-search"></i>
+                        <i class="bi bi-search" aria-hidden="true"></i>
                     </button>
                     <a class="icon-btn" href="cart.html" aria-label="Cart">
-                        <i class="bi bi-cart3"></i>
+                        <i class="bi bi-cart3" aria-hidden="true"></i>
                         <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
                     </a>
                     <div class="dropdown">
                         <button type="button" class="icon-btn" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account">
-                            <i class="bi bi-person"></i>
+                            <i class="bi bi-person" aria-hidden="true"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end user-menu">
                             <h2 id="userGreeting">Hello!</h2>
                             <p id="userHint">Sign in to check out your order.</p>
                             <a class="btn btn-red" id="loginLink" href="login.html">Login / Signup</a>
-                            <button type="button" class="btn btn-outline-dark" id="logoutBtn">Logout</button>
+                            <button type="button" class="btn btn-line" id="logoutBtn">Logout</button>
                             <ul>
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="products.html">All Products</a></li>
@@ -43,7 +52,7 @@
                 </div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Menu">
-                    <i class="bi bi-list"></i>
+                    <i class="bi bi-list" aria-hidden="true"></i>
                 </button>
 
                 <div class="collapse navbar-collapse order-lg-2" id="mainNav">
@@ -59,9 +68,9 @@
         </nav>
     </header>
 
-    <main class="page">
+    <main id="main" class="page">
         <div id="notFound" class="empty-state container" style="display: none;">
-            <i class="bi bi-exclamation-circle"></i>
+            <i class="bi bi-exclamation-circle" aria-hidden="true"></i>
             <h1>Product not found</h1>
             <a class="btn btn-red" href="products.html">Browse all products</a>
         </div>
@@ -96,7 +105,7 @@
                         <div id="stars"></div>
                         <p class="detail-price" id="price"></p>
                         <p class="detail-saved" id="saved"></p>
-                        <span class="in-stock"><i class="bi bi-check-lg"></i> In Stock</span>
+                        <span class="in-stock"><i class="bi bi-check-lg" aria-hidden="true"></i> In Stock</span>
                         <p class="detail-description" id="description"></p>
                         <div class="buy-row">
                             <div class="quantity-box">
@@ -107,8 +116,8 @@
                             <button type="button" class="btn btn-red" id="addBtn">Add to cart</button>
                         </div>
                         <ul class="detail-perks">
-                            <li><i class="bi bi-truck"></i>Ships in 24 hours, free delivery</li>
-                            <li><i class="bi bi-shield-check"></i>100% original product</li>
+                            <li><i class="bi bi-truck" aria-hidden="true"></i>Ships in 24 hours, free delivery</li>
+                            <li><i class="bi bi-shield-check" aria-hidden="true"></i>100% original product</li>
                         </ul>
                     </div>
                 </div>
@@ -162,7 +171,7 @@
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
                     <div class="col">
                         <div class="service">
-                            <i class="bi bi-truck"></i>
+                            <i class="bi bi-truck" aria-hidden="true"></i>
                             <div>
                                 <h3>Express Delivery</h3>
                                 <p>Ships in 24 hours</p>
@@ -171,7 +180,7 @@
                     </div>
                     <div class="col">
                         <div class="service">
-                            <i class="bi bi-shield-check"></i>
+                            <i class="bi bi-shield-check" aria-hidden="true"></i>
                             <div>
                                 <h3>Brand Warranty</h3>
                                 <p>100% original products</p>
@@ -180,7 +189,7 @@
                     </div>
                     <div class="col">
                         <div class="service">
-                            <i class="bi bi-tags"></i>
+                            <i class="bi bi-tags" aria-hidden="true"></i>
                             <div>
                                 <h3>Exciting Deals</h3>
                                 <p>On all prepaid orders</p>
@@ -189,7 +198,7 @@
                     </div>
                     <div class="col">
                         <div class="service">
-                            <i class="bi bi-credit-card"></i>
+                            <i class="bi bi-credit-card" aria-hidden="true"></i>
                             <div>
                                 <h3>Secure Payments</h3>
                                 <p>SSL / Secure certificate</p>
@@ -211,8 +220,8 @@
                         <div class="row g-2">
                             <div class="col-12 col-sm-8">
                                 <label class="visually-hidden" for="subscribeEmail">Email address</label>
-                                <input type="email" class="form-control" id="subscribeEmail" placeholder="Email address" autocomplete="email">
-                                <div class="invalid-feedback"></div>
+                                <input type="email" class="form-control" id="subscribeEmail" placeholder="Email address" autocomplete="email" aria-describedby="subscribeEmailError">
+                                <div class="invalid-feedback" id="subscribeEmailError"></div>
                             </div>
                             <div class="col-12 col-sm-4">
                                 <button type="submit" class="btn btn-red w-100">Subscribe</button>
@@ -252,14 +261,14 @@
         </div>
     </footer>
 
-    <button type="button" id="backTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+    <button type="button" id="backTop" aria-label="Back to top"><i class="bi bi-arrow-up" aria-hidden="true"></i></button>
 
     <div class="toast-container position-fixed bottom-0 start-0 p-3">
-        <div class="toast" id="cartToast" role="status" aria-live="polite" data-bs-delay="2500">
+        <div class="toast" id="siteToast" role="status" aria-live="polite" data-bs-delay="2500">
             <div class="d-flex align-items-center gap-3 p-3">
-                <i class="bi bi-check-circle-fill"></i>
+                <i class="bi bi-check-circle-fill" id="toastIcon" aria-hidden="true"></i>
                 <span class="flex-grow-1" id="toastText"></span>
-                <a href="cart.html">View cart</a>
+                <a href="cart.html" id="toastLink">View cart</a>
             </div>
         </div>
     </div>
@@ -268,12 +277,12 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <form class="search-box" id="searchForm" role="search">
-                    <i class="bi bi-search"></i>
+                    <i class="bi bi-search" aria-hidden="true"></i>
                     <label class="visually-hidden" for="searchInput">Search for a product</label>
                     <input type="search" class="form-control" id="searchInput" placeholder="Search for a product..." autocomplete="off">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </form>
-                <div id="searchResults"></div>
+                <div id="searchResults" aria-live="polite"></div>
             </div>
         </div>
     </div>

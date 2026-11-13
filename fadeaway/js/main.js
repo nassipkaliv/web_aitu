@@ -1,5 +1,12 @@
 const CART_KEY = 'fadeaway-cart';
 const USER_KEY = 'fadeaway-user';
+const THEME_KEY = 'fadeaway-theme';
+
+const TOAST_ICONS = {
+    success: 'bi-check-circle-fill',
+    info: 'bi-info-circle-fill',
+    error: 'bi-exclamation-circle-fill'
+};
 
 function formatPrice(price) {
     return price.toLocaleString('ru-RU') + ' ₸';
@@ -18,9 +25,9 @@ function getPhoto(product, number) {
 function getStars(rating) {
     let stars = '';
     for (let i = 1; i <= 5; i++) {
-        stars += i <= rating ? '<i class="bi bi-star-fill"></i>' : '<i class="bi bi-star"></i>';
+        stars += i <= rating ? '<i class="bi bi-star-fill" aria-hidden="true"></i>' : '<i class="bi bi-star" aria-hidden="true"></i>';
     }
-    return '<span class="stars" aria-label="' + rating + ' out of 5 stars">' + stars + '</span>';
+    return '<span class="stars" role="img" aria-label="' + rating + ' out of 5 stars">' + stars + '</span>';
 }
 
 function getPriceHtml(product) {
@@ -40,7 +47,7 @@ function productCard(product) {
                         <img src="${getPhoto(product, 1)}" alt="${product.brand} ${product.title}" loading="lazy">
                     </a>
                     <button type="button" class="add-btn add-to-cart" data-id="${product.id}" aria-label="Add ${product.title} to cart">
-                        <i class="bi bi-bag-plus"></i>
+                        <i class="bi bi-bag-plus" aria-hidden="true"></i>
                     </button>
                 </div>
                 ${getStars(product.rating)}
@@ -66,14 +73,17 @@ function addToCart(id, quantity) {
         return cartItem.id === id;
     });
 
+    const title = findProduct(id).title;
+
     if (item) {
         item.quantity += quantity;
+        saveCart(cart);
+        showToast(title + ': now ' + item.quantity + ' in your cart', 'info', true);
     } else {
         cart.push({ id: id, quantity: quantity });
+        saveCart(cart);
+        showToast(title + ' added to cart', 'success', true);
     }
-
-    saveCart(cart);
-    showToast(findProduct(id).title + ' added to cart');
 }
 
 function updateCartBadge() {
@@ -85,9 +95,19 @@ function updateCartBadge() {
     $('#cartBadge').text(count).toggle(count > 0);
 }
 
-function showToast(text) {
+function showToast(text, type, showCartLink) {
+    $('#siteToast').removeClass('toast-success toast-info toast-error').addClass('toast-' + type);
+    $('#toastIcon').attr('class', 'bi ' + TOAST_ICONS[type]);
     $('#toastText').text(text);
-    bootstrap.Toast.getOrCreateInstance(document.getElementById('cartToast')).show();
+    $('#toastLink').toggle(showCartLink === true);
+    bootstrap.Toast.getOrCreateInstance(document.getElementById('siteToast')).show();
+}
+
+function applyTheme(theme) {
+    const isDark = theme === 'dark';
+    $('html').attr('data-bs-theme', theme);
+    $('#themeBtn').attr('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    $('#themeBtn i').attr('class', isDark ? 'bi bi-sun' : 'bi bi-moon');
 }
 
 function getUser() {
@@ -99,12 +119,21 @@ function isEmail(value) {
 }
 
 function setFieldError(field, message) {
-    field.addClass('is-invalid').removeClass('is-valid');
+    field.addClass('is-invalid').removeClass('is-valid').attr('aria-invalid', 'true');
     field.siblings('.invalid-feedback').text(message);
 }
 
 function setFieldOk(field) {
-    field.addClass('is-valid').removeClass('is-invalid');
+    field.addClass('is-valid').removeClass('is-invalid').attr('aria-invalid', 'false');
+}
+
+function checkField(field, isOk, message) {
+    if (isOk) {
+        setFieldOk(field);
+    } else {
+        setFieldError(field, message);
+    }
+    return isOk;
 }
 
 function showSearchResults(text) {
@@ -133,6 +162,7 @@ function showSearchResults(text) {
 }
 
 $(document).ready(function () {
+    applyTheme(localStorage.getItem(THEME_KEY) || 'light');
     updateCartBadge();
     $('#year').text(new Date().getFullYear());
 
@@ -143,6 +173,13 @@ $(document).ready(function () {
         $('#loginLink').hide();
         $('#logoutBtn').show();
     }
+
+    $('#themeBtn').click(function () {
+        const theme = $('html').attr('data-bs-theme') === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(THEME_KEY, theme);
+        applyTheme(theme);
+        showToast(theme === 'dark' ? 'Dark mode is on' : 'Light mode is on', 'info');
+    });
 
     $('#logoutBtn').click(function () {
         localStorage.removeItem(USER_KEY);
